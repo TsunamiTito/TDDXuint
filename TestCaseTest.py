@@ -8,10 +8,14 @@ class TestCaseTest(TestCase):
 
     def testSetUp(self):
         self.test.run()
-        assert("setUp testMethod tearDown" == self.test.log)
+        assert(self.test.wasSetUp)
+
+    def testRunning(self):
+        self.test.run()
+        assert(self.test.wasRun)
 
 
+if __name__ == "__main__":
+    TestCaseTest("testSetUp").run()
+    TestCaseTest("testRunning").run()
 
-
-
-TestCaseTest("testRunning").run()
